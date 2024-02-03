@@ -1,25 +1,33 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import Cookies from 'js-cookie';
+import { useRouter } from 'next/navigation';
 
 export const useLogin = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+    const router = useRouter();
 
-  async function handleLogin() {
-    const res = await fetch("https://eventmakers-api.fly.dev/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    });
-    const data = await res.json();
-    console.log(data);
-  }
+    async function handleLogin(event) {
+        event.preventDefault();
+        const email = event.target.email.value;
+        const password = event.target.password.value;
 
-  return { handleLogin, setEmail, setPassword };
+        const res = await fetch('https://eventmakers-api.fly.dev/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email,
+                password
+            })
+        });
+
+        const { payload, token, message } = await res.json();
+        console.log(message);
+        localStorage.setItem('user', JSON.stringify(payload));
+        Cookies.set('token', token);
+        router.push('/dashboard');
+    }
+
+    return { handleLogin };
 };

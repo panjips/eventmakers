@@ -1,9 +1,5 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 export default function Home() {
-  return (
-    <main>
-      Hello World
-    </main>
-  );
+    return <main>Hello s World</main>;
 }
