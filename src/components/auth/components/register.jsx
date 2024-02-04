@@ -2,8 +2,9 @@
 
 import React from 'react';
 import Link from 'next/link';
-
+import useRegister from '../hooks/useRegister';
 export const Register = () => {
+    const { handleRegister } = useRegister();
     return (
         <div className="w-full h-full max-w-xs md:max-w-xl lg:max-w-3xl m-auto flex flex-col justify-center items-center">
             <div className="flex flex-col items-center px-8 py-6 border rounded-lg bg-slate-100">
@@ -18,7 +19,10 @@ export const Register = () => {
                         Register to share your own event.
                     </p>
                 </div>
-                <form onSubmit={''} className="w-full flex flex-col gap-6">
+                <form
+                    onSubmit={handleRegister}
+                    className="w-full flex flex-col gap-6"
+                >
                     <div className="flex flex-col gap-3">
                         <input
                             type="text"
