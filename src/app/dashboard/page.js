@@ -1,10 +1,9 @@
 import React from 'react';
 import { Dashboard } from '@/components/dashboard/components/dashboard';
-
-export default function page() {
+export default async function DashboardPage() {
     return (
-        <section>
+        <>
             <Dashboard />
-        </section>
+        </>
     );
 }

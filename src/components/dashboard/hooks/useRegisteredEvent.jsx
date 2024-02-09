@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 export default function useRegisteredEvent() {
     const [dataEvent, setDataEvent] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
     const [user, setUser] = useState('');
     useEffect(() => {
         const localUser = JSON.parse(localStorage.getItem('user'));
@@ -26,8 +27,20 @@ export default function useRegisteredEvent() {
             return;
         });
 
+        console.log(userEvents);
+
         return userEvents;
     }
 
-    return { handleDataEvents, dataEvent, setDataEvent };
+    useEffect(() => {
+        const handleDatas = async () => {
+            const datas = await handleDataEvents();
+            setDataEvent(datas);
+            setIsLoading(false);
+        };
+
+        handleDatas();
+    }, [isLoading]);
+
+    return { dataEvent, isLoading };
 }
