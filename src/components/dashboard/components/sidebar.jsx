@@ -1,6 +1,7 @@
 'use client';
 
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { SidebarContext } from '@/app/dashboard/layout';
 import { FaCalendarAlt } from 'react-icons/fa';
 import { FaListAlt } from 'react-icons/fa';
 import Link from 'next/link';
@@ -8,8 +9,28 @@ import { usePathname } from 'next/navigation';
 
 export const Sidebar = () => {
     const pathname = usePathname();
+    const { isOpen, setIsOpen } = useContext(SidebarContext);
+
+    useEffect(() => {
+        const sidebar = document.getElementById('sidebar');
+
+        document.addEventListener('mousedown', (event) => {
+            if (
+                !sidebar.contains(event.target) &&
+                !sidebar.className.includes('hidden')
+            ) {
+                setIsOpen(!isOpen);
+            }
+        });
+    }, [isOpen, setIsOpen]);
+
     return (
-        <aside className=" max-w-60 w-full h-screen bg-slate-50 border-r border-slate-300 sticky left-0 top-0">
+        <aside
+            id="sidebar"
+            className={`lg:block absolute ${
+                !isOpen && 'hidden'
+            } max-w-60 w-full h-screen bg-slate-50 border-r border-slate-300 lg:sticky left-0 top-0`}
+        >
             <div className="flex flex-col p-6 h-full">
                 <h2 className="text-center text-xl font-bold tracking-wider overflow-hidden bg-gradient-to-r from-blue-900  to-indigo-500 inline-block text-transparent bg-clip-text">
                     EVENTMAKERS
