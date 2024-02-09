@@ -3,7 +3,7 @@
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/navigation';
 
-export const useLogin = () => {
+export default function useLogin() {
     const router = useRouter();
 
     async function handleLogin(event) {
@@ -30,4 +30,4 @@ export const useLogin = () => {
     }
 
     return { handleLogin };
-};
+}

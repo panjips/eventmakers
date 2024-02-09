@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
-import { useLogin } from '../hooks/useLogin';
+import useLogin from '../hooks/useLogin';
 
 export const Login = () => {
     const { handleLogin } = useLogin();
@@ -43,7 +43,7 @@ export const Login = () => {
                 </form>
 
                 <p className="text-xs mt-4 text-slate-400">
-                    Don't have account yet?{' '}
+                    Dont have account yet?{' '}
                     <Link
                         href="/register"
                         className="text-indigo-500 hover:text-indigo-700 hover:font-bold transition-all"

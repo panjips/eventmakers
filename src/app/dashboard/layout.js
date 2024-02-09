@@ -9,10 +9,10 @@ export default function DashboardLayout({ children }) {
     const [isOpen, setIsOpen] = useState(false);
     return (
         <SidebarContext.Provider value={{ isOpen, setIsOpen }}>
-            <section className="lg:flex min-h-full h-screen bg-slate-200">
+            <section className="lg:flex min-h-full w-screen h-screen bg-slate-200">
                 <Sidebar />
                 <Header />
-                <main>{children}</main>
+                <main className="w-full">{children}</main>
             </section>
         </SidebarContext.Provider>
     );
