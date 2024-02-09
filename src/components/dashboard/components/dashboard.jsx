@@ -1,7 +1,12 @@
-import React from 'react';
+'use client';
+import React, { useEffect } from 'react';
 import { Card } from './card';
+import useRegisteredEvent from '../hooks/useRegisteredEvent';
 
 export const Dashboard = () => {
+    const { handleDataEvents, dataEvent, setDataEvent } = useRegisteredEvent();
+
+
     return (
         <div className="px-6 py-3 lg:py-6">
             <h1 className="text-2xl lg:text-3xl text-slate-600 font-bold">
