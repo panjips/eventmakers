@@ -17,16 +17,17 @@ export const Dashboard = () => {
                     </>
                 ) : (
                     <>
-                        {dataEvent.map((e) => {
-                            return (
-                                <Card
-                                    key={e.events.id}
-                                    image={e.events.image}
-                                    title={e.events.title}
-                                    date={e.events.dateTime}
-                                />
-                            );
-                        })}
+                        {dataEvent &&
+                            dataEvent.map((e) => {
+                                return (
+                                    <Card
+                                        key={e.events.id}
+                                        image={e.events.image}
+                                        title={e.events.title}
+                                        date={e.events.dateTime}
+                                    />
+                                );
+                            })}
                     </>
                 )}
             </div>

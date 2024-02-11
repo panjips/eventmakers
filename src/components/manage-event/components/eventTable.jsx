@@ -1,7 +1,7 @@
 import React from 'react';
 import { ItemTable } from '@/components/manage-event/atoms/itemTable';
 
-export const EventTable = () => {
+export const EventTable = ({ data }) => {
     return (
         <div className="overflow-x-auto bg-slate-50 rounded-lg shadow-sm">
             <table className="table">
@@ -18,10 +18,18 @@ export const EventTable = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <ItemTable />
-                    <ItemTable />
-                    <ItemTable />
-                    <ItemTable />
+                    {data &&
+                        data.map((e) => {
+                            return (
+                                <>
+                                    <ItemTable
+                                        title={e.events.title}
+                                        date={e.events.dateTime}
+                                        description={e.events.description}
+                                    />
+                                </>
+                            );
+                        })}
                 </tbody>
             </table>
         </div>
