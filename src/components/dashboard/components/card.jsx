@@ -7,7 +7,9 @@ export const Card = ({ image, title, date }) => {
                 <img className="object-fill w-full" src={image} alt="Shoes" />
             </figure>
             <div className="card-body">
-                <h2 className="card-title">{title}</h2>
+                <h2 className="card-title overflow-hidden text-ellipsis line-clamp-1 ">
+                    {title}
+                </h2>
                 <p>{date}</p>
                 <div className="card-actions justify-end">
                     <button className="btn btn-xs btn-success text-white">
