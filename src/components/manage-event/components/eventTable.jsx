@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import { ItemTable } from '@/components/manage-event/atoms/itemTable';
 
@@ -18,16 +19,10 @@ export const EventTable = ({ data }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data &&
+                    {data != null &&
                         data.map((e) => {
                             return (
-                                <>
-                                    <ItemTable
-                                        title={e.events.title}
-                                        date={e.events.dateTime}
-                                        description={e.events.description}
-                                    />
-                                </>
+                                <ItemTable key={e.events.id} data={e.events} />
                             );
                         })}
                 </tbody>

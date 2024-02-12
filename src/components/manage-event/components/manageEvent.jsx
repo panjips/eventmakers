@@ -16,6 +16,7 @@ export const ManageEvent = () => {
                 <EventForm />
             </div>
             <EventTable data={dataEvent} />
+
         </div>
     );
 };

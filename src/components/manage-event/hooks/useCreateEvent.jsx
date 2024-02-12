@@ -1,8 +1,10 @@
 'use client';
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
 
 export default function useCreateEvent() {
+    const router = useRouter();
     const [user, setUser] = useState('');
     const [token, setToken] = useState('');
 
@@ -13,7 +15,7 @@ export default function useCreateEvent() {
     }, []);
 
     async function handleCreateEvent(e) {
-        e.preventDefault();
+        // e.preventDefault();
 
         const title = e.target.title.value;
         const date = e.target.date.value;
@@ -35,6 +37,7 @@ export default function useCreateEvent() {
             })
         });
         const res = await req.json();
+        router.refresh();
         console.log(res);
     }
 

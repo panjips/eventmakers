@@ -32,8 +32,7 @@ export default function useGetCreatedEvent() {
         };
 
         handleDatas();
-    }, [isLoading]);
-
+    });
 
     return { dataEvent, isLoading };
 }

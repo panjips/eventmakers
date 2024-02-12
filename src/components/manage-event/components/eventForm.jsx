@@ -5,7 +5,7 @@ import useCreateEvent from '../hooks/useCreateEvent';
 export const EventForm = () => {
     const { formData, handleCreateEvent } = useCreateEvent();
     return (
-        <form onSubmit={handleCreateEvent} action="POST">
+        <form onSubmit={handleCreateEvent} method="POST">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-x-4 gap-y-2">
                 <div className="form-control md:col-span-4">
                     <label className="label text-sm">Event name</label>
