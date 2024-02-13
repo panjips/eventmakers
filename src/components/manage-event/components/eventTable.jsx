@@ -1,7 +1,8 @@
+'use client';
 import React from 'react';
 import { ItemTable } from '@/components/manage-event/atoms/itemTable';
 
-export const EventTable = () => {
+export const EventTable = ({ data }) => {
     return (
         <div className="overflow-x-auto bg-slate-50 rounded-lg shadow-sm">
             <table className="table">
@@ -18,10 +19,12 @@ export const EventTable = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <ItemTable />
-                    <ItemTable />
-                    <ItemTable />
-                    <ItemTable />
+                    {data != null &&
+                        data.map((e) => {
+                            return (
+                                <ItemTable key={e.events.id} data={e.events} />
+                            );
+                        })}
                 </tbody>
             </table>
         </div>

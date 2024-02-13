@@ -27,15 +27,13 @@ export default function useRegisteredEvent() {
             return;
         });
 
-        console.log(userEvents);
-
         return userEvents;
     }
 
     useEffect(() => {
         const handleDatas = async () => {
             const datas = await handleDataEvents();
-            setDataEvent(datas);
+            datas.length !== 0 ? setDataEvent(datas) : setDataEvent(null);
             setIsLoading(false);
         };
 
