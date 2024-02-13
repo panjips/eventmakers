@@ -29,7 +29,7 @@ export const Sidebar = () => {
             id="sidebar"
             className={`lg:block z-50 fixed ${
                 !isOpen && 'hidden'
-            } max-w-60 w-full min-h-full h-screen bg-slate-50 border-r border-slate-300 lg:sticky left-0 top-0 drop-shadow-lg shadow-slate-600`}
+            } max-w-60 w-full min-h-full h-screen bg-slate-50 border-r border-slate-300 lg:sticky left-0 top-0 drop-shadow-xs shadow-slate-600`}
         >
             <div className="flex flex-col p-6 h-full">
                 <h2 className="text-center text-xl font-bold tracking-wider overflow-hidden bg-gradient-to-r from-blue-900  to-indigo-500 inline-block text-transparent bg-clip-text">

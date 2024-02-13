@@ -13,7 +13,7 @@ export default function useDeleteEvent() {
     }, []);
 
     async function handleDeleteEvent(e) {
-        // e.preventDefault();
+        e.preventDefault();
         const req = await fetch(
             `https://eventmakers-api.fly.dev/events/${idEvent}`,
             {

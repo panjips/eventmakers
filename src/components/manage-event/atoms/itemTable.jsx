@@ -4,6 +4,7 @@ import { FaInfoCircle } from 'react-icons/fa';
 import { FaEdit } from 'react-icons/fa';
 import { FaTrashAlt } from 'react-icons/fa';
 import useDeleteEvent from '../hooks/useDeleteEvent';
+import useEditEvent from '../hooks/useEditEvent';
 
 export const ItemTable = ({ data }) => {
     const { handleDeleteEvent, setIdEvent } = useDeleteEvent();
@@ -11,6 +12,7 @@ export const ItemTable = ({ data }) => {
     useEffect(() => {
         setIdEvent(id);
     }, []);
+    const { isEdit, setIsEdit, handleIsEdit } = useEditEvent();
 
     return (
         <>
@@ -34,7 +36,10 @@ export const ItemTable = ({ data }) => {
                     <button className="btn btn-ghost btn-sm group transition-all hover:shadow-sm">
                         <FaInfoCircle className="text-slate-700 group-hover:text-white transition-all" />
                     </button>
-                    <button className="btn btn-ghost btn-sm group transition-all hover:shadow-sm">
+                    <button
+                        onClick={() => handleIsEdit(data)}
+                        className="btn btn-ghost btn-sm group transition-all hover:shadow-sm"
+                    >
                         <FaEdit className="text-slate-700 group-hover:text-white transition-all" />
                     </button>
                     <button
