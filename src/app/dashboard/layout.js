@@ -1,7 +1,7 @@
 'use client';
 import React, { createContext, useState } from 'react';
-import { Sidebar } from '@/components/dashboard/components/sidebar';
-import { Header } from '@/components/dashboard/components/header';
+import { Sidebar } from '@/components/shared/sidebar';
+import { Header } from '@/components/shared/header';
 
 export const SidebarContext = createContext();
 
