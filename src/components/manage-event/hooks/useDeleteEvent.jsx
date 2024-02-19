@@ -2,11 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
+import Toast from '@/components/shared/toast';
 
 export default function useDeleteEvent() {
     const router = useRouter();
     const [idEvent, setIdEvent] = useState(null);
     const [token, setToken] = useState('');
+    const { toastSuccess } = Toast();
 
     useEffect(() => {
         setToken(Cookies.get('token'));
@@ -24,9 +26,9 @@ export default function useDeleteEvent() {
             }
         );
 
-        const res = await req.json();
+        const { message } = await req.json();
+        toastSuccess(message);
         router.refresh();
-        console.log(res);
     }
 
     return { handleDeleteEvent, setIdEvent };

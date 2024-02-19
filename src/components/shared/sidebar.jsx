@@ -2,13 +2,14 @@
 
 import React, { useContext, useEffect } from 'react';
 import { SidebarContext } from '@/app/dashboard/layout';
-import { FaCalendarAlt } from 'react-icons/fa';
-import { FaListAlt } from 'react-icons/fa';
+import { FaCalendarAlt, FaListAlt } from 'react-icons/fa';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
+import Cookies from 'js-cookie';
 
 export const Sidebar = () => {
     const pathname = usePathname();
+    const router = useRouter();
     const { isOpen, setIsOpen } = useContext(SidebarContext);
 
     useEffect(() => {
@@ -24,6 +25,12 @@ export const Sidebar = () => {
         });
     }, [isOpen, setIsOpen]);
 
+    function logout() {
+        localStorage.removeItem('user');
+        Cookies.remove('token');
+        router.push('/login');
+    }
+
     return (
         <aside
             id="sidebar"
@@ -32,9 +39,12 @@ export const Sidebar = () => {
             } max-w-60 w-full min-h-full h-screen bg-slate-50 border-r border-slate-300 lg:sticky left-0 top-0 drop-shadow-xs shadow-slate-600`}
         >
             <div className="flex flex-col p-6 h-full">
-                <h2 className="text-center text-xl font-bold tracking-wider overflow-hidden bg-gradient-to-r from-blue-900  to-indigo-500 inline-block text-transparent bg-clip-text">
+                <Link
+                    href={'/'}
+                    className="text-center text-xl font-bold tracking-wider overflow-hidden bg-gradient-to-r from-blue-900  to-indigo-500 inline-block text-transparent bg-clip-text"
+                >
                     EVENTMAKERS
-                </h2>
+                </Link>
                 <div className="h-[1px] bg-slate-300 my-4"></div>
 
                 <div className="flex flex-col gap-2">
@@ -67,7 +77,10 @@ export const Sidebar = () => {
                         </div>
                     </Link>
                 </div>
-                <button className="btn btn-outline btn-error btn-sm mt-auto hover:text-slate-50">
+                <button
+                    onClick={logout}
+                    className="btn btn-outline btn-error btn-sm mt-auto hover:text-slate-50"
+                >
                     Logout
                 </button>
             </div>

@@ -3,12 +3,14 @@ import React, { useEffect, useState, useContext } from 'react';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/navigation';
 import { InputContext } from '../providers';
+import Toast from '@/components/shared/toast';
 
 export default function useEditEvent() {
     const [token, setToken] = useState('');
     const [idEvent, setIdEvent] = useState('');
     const router = useRouter();
     const { event, setEvent, isEdit, setIsEdit } = useContext(InputContext);
+    const { toastWarning, toastSuccess } = Toast();
     useEffect(() => {
         setToken(Cookies.get('token'));
     }, []);
@@ -38,6 +40,17 @@ export default function useEditEvent() {
 
     async function handleEditEvent(e) {
         e.preventDefault();
+
+        if (
+            event.date.length === 0 ||
+            event.title.length === 0 ||
+            event.description.length === 0 ||
+            event.image.length === 0
+        ) {
+            toastWarning('Input field cannot empty!');
+            return;
+        }
+
         const req = await fetch(
             `https://eventmakers-api.fly.dev/events/${event.id}`,
             {
@@ -55,10 +68,10 @@ export default function useEditEvent() {
             }
         );
 
-        const res = await req.json();
+        const { message } = await req.json();
+        toastSuccess(message);
         handleCancelEdit();
         router.refresh();
-        console.log(res);
     }
 
     return {

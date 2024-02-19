@@ -7,8 +7,6 @@ export async function middleware(request) {
     const secretKey = new TextEncoder().encode(process.env.SECRET_KEY);
 
     try {
-        console.log(secretKey);
-        console.log(token);
         await jose.jwtVerify(token, secretKey);
         return NextResponse.next();
     } catch (error) {

@@ -2,6 +2,7 @@
 import React, { useContext } from 'react';
 import { SidebarContext } from '@/app/dashboard/layout';
 import { FaBars } from 'react-icons/fa';
+import Link from 'next/link';
 
 export const Header = () => {
     const { isOpen, setIsOpen } = useContext(SidebarContext);
@@ -14,9 +15,12 @@ export const Header = () => {
                 >
                     <FaBars className="text-slate-600" size={16} />
                 </button>
-                <h2 className="text-2xl font-bold tracking-wider overflow-hidden bg-gradient-to-r from-blue-900  to-indigo-500 inline-block text-transparent bg-clip-text">
+                <Link
+                    href={'/'}
+                    className="text-2xl font-bold tracking-wider overflow-hidden bg-gradient-to-r from-blue-900  to-indigo-500 inline-block text-transparent bg-clip-text"
+                >
                     EVENTMAKERS
-                </h2>
+                </Link>
             </div>
         </div>
     );

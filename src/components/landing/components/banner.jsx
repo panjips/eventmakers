@@ -1,17 +1,21 @@
 import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export const Banner = () => {
     return (
         <div className="mt-8 lg:mt-16 bg-gradient-to-br from-indigo-500 via-blue-700 to-indigo-800/75 h-64 w-full rounded-lg relative">
             <div className="">
-                <img
+                <Image
                     src="/wave1.svg"
-                    alt=""
+                    alt="wave"
+                    fill
                     className="absolute object-cover w-full h-full rounded-lg z-10"
                 />
-                <img
+                <Image
                     src="/wave2.svg"
-                    alt=""
+                    alt="wave"
+                    fill
                     className="absolute object-cover w-full h-full rounded-lg z-10"
                 />
             </div>
@@ -24,9 +28,12 @@ export const Banner = () => {
                     ticket platform. Your event dreams, our seamless execution
                     lets turn your vision into a sold-out reality.
                 </p>
-                <button className="btn btn-success mt-3 btn-xs lg:btn-sm text-slate-100 bg-green-600/90 px-4">
+                <Link
+                    href={'/dashboard/manage'}
+                    className="btn btn-success mt-3 btn-xs lg:btn-sm text-slate-100 bg-green-600/90 px-4"
+                >
                     Create your event now!
-                </button>
+                </Link>
             </div>
         </div>
     );
