@@ -12,5 +12,7 @@ export default function useSingleData() {
         return data;
     }
 
+
+
     return { handleSingleDataEvent };
 }

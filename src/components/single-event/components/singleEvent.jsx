@@ -7,7 +7,10 @@ import { SyaratKetentuan } from './syaratKetentuan';
 import useJoinEvent from '../hooks/useJoinEvent';
 
 export const SingleEvent = ({ events, participants }) => {
-    const { handleChange, phoneNumber, handleJoinEvent } = useJoinEvent();
+    const { handleChange, phoneNumber, handleJoinEvent, handleIsJoinEvent } =
+        useJoinEvent();
+    const isJoin = handleIsJoinEvent(participants);
+    console.log(isJoin);
     return (
         <Container>
             <div className="py-8">
@@ -52,29 +55,31 @@ export const SingleEvent = ({ events, participants }) => {
                                 </div>
                             </div>
                         </div>
-                        <form
-                            method="POST"
-                            onSubmit={handleJoinEvent}
-                            className="mt-4 flex flex-col lg:gap-4"
-                        >
-                            <div className="form-control">
-                                <label className="text-sm py-1">
-                                    Phone number
-                                </label>
-                                <input
-                                    type="number"
-                                    id="title"
-                                    name="title"
-                                    value={phoneNumber}
-                                    onChange={handleChange}
-                                    placeholder="Input your phone number..."
-                                    className="input input-accent input-sm input-bordered placeholder-slate-500/30"
-                                />
-                            </div>
-                            <button className="mt-4 lg:mt-0 btn btn-primary bg-indigo-500 hover:bg-indigo-600 btn-sm text-slate-50">
-                                Join Now
-                            </button>
-                        </form>
+                        {isJoin && (
+                            <form
+                                method="POST"
+                                onSubmit={handleJoinEvent}
+                                className="mt-4 flex flex-col lg:gap-4"
+                            >
+                                <div className="form-control">
+                                    <label className="text-sm py-1">
+                                        Phone number
+                                    </label>
+                                    <input
+                                        type="number"
+                                        id="title"
+                                        name="title"
+                                        value={phoneNumber}
+                                        onChange={handleChange}
+                                        placeholder="Input your phone number..."
+                                        className="input input-accent input-sm input-bordered placeholder-slate-500/30"
+                                    />
+                                </div>
+                                <button className="mt-4 lg:mt-0 btn btn-primary bg-indigo-500 hover:bg-indigo-600 btn-sm text-slate-50">
+                                    Join Now
+                                </button>
+                            </form>
+                        )}
                     </div>
                     <div className="lg:col-span-9 p-4 w-full bg-slate-50 rounded-lg shadow-sm">
                         <SyaratKetentuan />

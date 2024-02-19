@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import { Slide, toast } from 'react-toastify';
 import Cookies from 'js-cookie';
 import { useParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
@@ -24,11 +25,24 @@ export default function useJoinEvent() {
 
     async function handleJoinEvent(e) {
         e.preventDefault();
-        console.log({
-            name: user.name,
-            email: user.email,
-            phoneNumber: phoneNumber
-        });
+
+        if (!user || !token || !phoneNumber) {
+            console.log(!user);
+            toast.info('Silahkan login terlebih dahulu!', {
+                position: 'bottom-right',
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'light',
+                transition: Slide
+            });
+            router.push('/login');
+            return;
+        }
+
         const req = await fetch(
             `https://eventmakers-api.fly.dev/events/${eventId}/join`,
             {
@@ -50,5 +64,11 @@ export default function useJoinEvent() {
         setPhoneNumber('');
     }
 
-    return { handleChange, phoneNumber, handleJoinEvent };
+    function handleIsJoinEvent(participants) {
+        console.log(user);
+        if (!user) return true;
+        return !Array.from(participants).find((e) => e.email === user.email);
+    }
+
+    return { handleChange, phoneNumber, handleJoinEvent, handleIsJoinEvent };
 }
