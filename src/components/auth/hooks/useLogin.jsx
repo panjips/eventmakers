@@ -2,10 +2,11 @@
 
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/navigation';
+import Toast from '@/components/shared/toast';
 
 export default function useLogin() {
     const router = useRouter();
-
+    const { toastSuccess, toastError } = Toast();
     async function handleLogin(event) {
         event.preventDefault();
         const email = event.target.email.value;
@@ -23,9 +24,13 @@ export default function useLogin() {
         });
 
         const { payload, token, message } = await res.json();
-        console.log(message);
+        if (!payload) {
+            toastError('Error credentials!');
+            return;
+        }
         localStorage.setItem('user', JSON.stringify(payload));
         Cookies.set('token', token);
+        toastSuccess(message);
         router.push('/dashboard');
     }
 
