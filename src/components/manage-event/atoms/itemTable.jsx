@@ -5,14 +5,20 @@ import { FaEdit } from 'react-icons/fa';
 import { FaTrashAlt } from 'react-icons/fa';
 import useDeleteEvent from '../hooks/useDeleteEvent';
 import useEditEvent from '../hooks/useEditEvent';
+import { useRouter } from 'next/navigation';
 
 export const ItemTable = ({ data }) => {
+    const router = useRouter();
     const { handleDeleteEvent, setIdEvent } = useDeleteEvent();
     const { title, description, dateTime, id } = data;
     useEffect(() => {
         setIdEvent(id);
     }, []);
     const { isEdit, setIsEdit, handleIsEdit } = useEditEvent();
+
+    function detailEvent() {
+        router.push(`/${id}`);
+    }
 
     return (
         <>
@@ -33,7 +39,10 @@ export const ItemTable = ({ data }) => {
                     </span>
                 </td>
                 <td className="text-center ">
-                    <button className="btn btn-ghost btn-sm group transition-all hover:shadow-sm">
+                    <button
+                        onClick={detailEvent}
+                        className="btn btn-ghost btn-sm group transition-all hover:shadow-sm"
+                    >
                         <FaInfoCircle className="text-slate-700 group-hover:text-white transition-all" />
                     </button>
                     <button

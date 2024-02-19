@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { Slide, toast } from 'react-toastify';
+import Toast from '@/components/shared/toast';
 import Cookies from 'js-cookie';
 import { useParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
@@ -11,6 +11,7 @@ export default function useJoinEvent() {
     const [token, setToken] = useState('');
     const { eventId } = useParams();
     const router = useRouter();
+    const { toastInfo } = Toast();
 
     useEffect(() => {
         const localUser = JSON.parse(localStorage.getItem('user'));
@@ -28,17 +29,7 @@ export default function useJoinEvent() {
 
         if (!user || !token || !phoneNumber) {
             console.log(!user);
-            toast.info('Silahkan login terlebih dahulu!', {
-                position: 'bottom-right',
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: 'light',
-                transition: Slide
-            });
+            toastInfo('Silahkan login terlebih dahulu!');
             router.push('/login');
             return;
         }

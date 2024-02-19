@@ -3,12 +3,14 @@ import React, { useEffect, useState, useContext } from 'react';
 import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
 import { InputContext } from '../providers';
+import Toast from '@/components/shared/toast';
 
 export default function useCreateEvent() {
     const router = useRouter();
     const [user, setUser] = useState('');
     const { event, setEvent } = useContext(InputContext);
     const [token, setToken] = useState('');
+    const { toastSuccess, toastWarning } = Toast();
 
     useEffect(() => {
         const localUser = JSON.parse(localStorage.getItem('user'));
@@ -30,6 +32,7 @@ export default function useCreateEvent() {
             event.description.length === 0 ||
             event.image.length === 0
         ) {
+            toastWarning('Input field cannot empty!');
             return;
         }
 
@@ -47,7 +50,8 @@ export default function useCreateEvent() {
                 author: user.id
             })
         });
-        const res = await req.json();
+        const { message } = await req.json();
+        toastSuccess(message);
         router.refresh();
         setEvent((event) => ({
             ...event,
@@ -56,8 +60,6 @@ export default function useCreateEvent() {
             image: '',
             description: ''
         }));
-        console.log(event);
-        console.log(res);
     }
 
     return { handleCreateEvent, event, handleChange };
