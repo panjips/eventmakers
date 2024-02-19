@@ -11,7 +11,7 @@ export default function useJoinEvent() {
     const [token, setToken] = useState('');
     const { eventId } = useParams();
     const router = useRouter();
-    const { toastInfo } = Toast();
+    const { toastInfo, toastWarning } = Toast();
 
     useEffect(() => {
         const localUser = JSON.parse(localStorage.getItem('user'));
@@ -27,10 +27,13 @@ export default function useJoinEvent() {
     async function handleJoinEvent(e) {
         e.preventDefault();
 
-        if (!user || !token || !phoneNumber) {
+        if (!user || !token) {
             console.log(!user);
             toastInfo('Silahkan login terlebih dahulu!');
             router.push('/login');
+            return;
+        } else if (!phoneNumber) {
+            toastWarning('Field cannot empty!');
             return;
         }
 
