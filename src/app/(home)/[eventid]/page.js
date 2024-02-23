@@ -1,14 +1,20 @@
-import React from 'react';
+import { Footer } from '@/components/shared/footer';
 import { SingleEvent } from '@/components/single-event/components/singleEvent';
 import useSingleData from '@/components/single-event/hooks/useSingleData';
 
+export const metadata = {
+    title: 'Detail Event | DynaVent',
+    description: 'Simple Events Management Nextjs'
+};
+
 export default async function EventPage({ params }) {
-    const { eventId } = params;
+    const { eventid } = params;
     const { handleSingleDataEvent } = useSingleData();
-    const { events, participants } = await handleSingleDataEvent(eventId);
+    const { events, participants } = await handleSingleDataEvent(eventid);
     return (
-        <div>
+        <>
             <SingleEvent events={events} participants={participants} />
-        </div>
+            <Footer />
+        </>
     );
 }
