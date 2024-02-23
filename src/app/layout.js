@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
+    description: 'Simple Events Management Nextjs',
     icons: {
         icon: '/icon.png'
     }

@@ -3,8 +3,7 @@ import { SingleEvent } from '@/components/single-event/components/singleEvent';
 import useSingleData from '@/components/single-event/hooks/useSingleData';
 
 export const metadata = {
-    title: 'Detail Event | DynaVent',
-    description: 'Simple Events Management Nextjs'
+    title: 'Detail Event | DynaVent'
 };
 
 export default async function EventPage({ params }) {
