@@ -19,7 +19,7 @@ export const Hero = () => {
                         </button>
                     </Link>
                     <Link href={'/#events'}>
-                        <button className="btn btn-primary">
+                        <button className="btn btn-accent">
                             Explore Events
                         </button>
                     </Link>
