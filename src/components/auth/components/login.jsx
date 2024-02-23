@@ -3,22 +3,22 @@ import React from 'react';
 import Link from 'next/link';
 import useLogin from '../hooks/useLogin';
 
-
 export const Login = () => {
     const { handleLogin } = useLogin();
     return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100">
-
-        <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-           <div className="bg-white rounded-2xl shadow-2xl flex w-2/3 max-w-4xl">
-           <div className="w-3/5 p-5">
-            <div className="text-left font-bold">
-                <span className="text-orange-500"> 🎪 Dyna</span>Vent
-            </div>
-            <div className="py-10">
-                <h2 className="text-3xl font-bold text-orange-500 mb-2">Sign in to Dynavent</h2>
-                <div className="border-2 w-10 border-orange-500 inline-block mb-2"></div>
-
+        <div className="w-full h-full max-w-xs md:max-w-xl lg:max-w-3xl m-auto flex flex-col justify-center items-center">
+            <div className="flex flex-col items-center px-8 py-6 border rounded-lg bg-slate-100">
+                <div className="mb-3 lg:mb-6">
+                    <h1 className=" text-slate-700 text-3xl font-semibold">
+                        Welcome to{' '}
+                        <span className="text-indigo-500 font-bold">
+                            Eventmakers
+                        </span>
+                    </h1>
+                    <p className="text-slate-500 lg:text-sm text-xs">
+                        Sign in to create your own event.
+                    </p>
+                </div>
                 <form
                     onSubmit={handleLogin}
                     className="w-full flex flex-col gap-6"
@@ -37,36 +37,21 @@ export const Login = () => {
                             className="border-2 border-slate-300 text-sm bg-white rounded-md p-2 focus:outline-slate-400 "
                         />
                     </div>
-                    <button className="bg-orange-400 hover:bg-orange-700 transition-all text-slate-100 py-2 px-5 rounded-md text-sm ">
+                    <button className="bg-slate-700 hover:bg-slate-900 transition-all text-slate-100 py-2 px-5 rounded-md text-sm ">
                         Sign In
                     </button>
                 </form>
+
                 <p className="text-xs mt-4 text-slate-400">
                     Dont have account yet?{' '}
-                     <Link
+                    <Link
                         href="/register"
                         className="text-indigo-500 hover:text-indigo-700 hover:font-bold transition-all"
                     >
                         Register now
                     </Link>
                 </p>
-
             </div>
-           </div> 
-            <div className="w-2/5 bg-orange-400  text-white rounded-tr-2xl rounded-br-2xl py-36 px-12"> 
-                <h1 className="text-3xl font-bold"> 🎪 </h1>
-              
-                <div className="border-2 w-10 border-white inline-block mb-2"></div>
-                <p className="mb-10">Sign in to create & start explore event with us.</p>
-               
-            </div>
-
-            </div>
-        </main>
-
-    </div>
-
-
-   
+        </div>
     );
 };
