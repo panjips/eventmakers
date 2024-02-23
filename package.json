@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "boring-avatars": "^1.10.1",
     "daisyui": "^4.6.1",
     "jose": "^5.2.2",
     "js-cookie": "^3.0.5",
