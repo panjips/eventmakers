@@ -5,6 +5,7 @@ import { FaCalendarAlt, FaUser } from 'react-icons/fa';
 import { TermsConditions } from './termsConditions';
 import Image from 'next/image';
 import useJoinEvent from '../hooks/useJoinEvent';
+import Avatar from 'boring-avatars';
 
 export const SingleEvent = ({ events, participants }) => {
     const {
@@ -42,6 +43,27 @@ export const SingleEvent = ({ events, participants }) => {
                             <p className="text-sm text-slate-600 leading-5">
                                 {events.description}
                             </p>
+                        </div>
+                        <div className="p-4 w-full bg-slate-50 rounded-lg shadow-sm">
+                            <h3 className="border-l-4 border-neutral pl-2 font-semibold text-lg text-slate-600 mb-2">
+                                Organized by
+                            </h3>
+                            <div className="flex items-center gap-2">
+                                <Avatar
+                                    size={30}
+                                    variant="beam"
+                                    colors={[
+                                        '#AAFF00',
+                                        '#FFAA00',
+                                        '#FF00AA',
+                                        '#AA00FF',
+                                        '#00AAFF'
+                                    ]}
+                                />
+                                <p className="text-lg text-slate-600 leading-5 font-semibold">
+                                    Dynacode
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <div className="p-4 lg:col-span-3 w-full bg-slate-50 rounded-lg shadow-sm flex justify-between flex-col">

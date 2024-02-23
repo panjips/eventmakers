@@ -2,7 +2,7 @@ export const TermsConditions = () => {
     return (
         <>
             <h1 className="border-l-4 border-neutral pl-2 text-xl text-slate-600 font-semibold mb-2">
-                Syarat dan Ketentuan
+                Terms and Conditions
             </h1>
             <ol className="list-decimal list-inside list text-sm">
                 <li className="mt-2">
