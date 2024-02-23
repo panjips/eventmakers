@@ -11,7 +11,8 @@ export const Hero = () => {
                     <p className="py-6">
                         Design your own unforgettable experience on our website
                         ticket platform. Your event dreams, our seamless
-                        execution lets turn your vision into a sold-out reality.
+                        execution let`s turn your vision into a sold-out
+                        reality.
                     </p>
                     <Link href={'/dashboard'}>
                         <button className="btn hover:btn-neutral mr-2">
