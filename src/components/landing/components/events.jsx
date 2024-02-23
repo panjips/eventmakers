@@ -1,10 +1,27 @@
+'use client';
+import React, { useState, useEffect } from 'react';
 import { CardEvent } from './cardEvent';
 import useDataLanding from '../hooks/useDataLanding';
 import { Container } from '@/components/shared/container';
 
-export const Events = async () => {
+export const Events = () => {
+    const [events, setEvents] = useState(null);
+    const [input, setInput] = useState();
+
     const { handleDataEvents } = useDataLanding();
-    const events = await handleDataEvents();
+
+    useEffect(() => {
+        const fetchDataEvents = async () => {
+            const events = await handleDataEvents(input);
+            setEvents(events);
+        };
+
+        fetchDataEvents();
+    }, [input, setEvents]);
+
+    function handleChangeInput(e) {
+        setInput(e.target.value);
+    }
 
     return (
         <Container>
@@ -20,22 +37,21 @@ export const Events = async () => {
                     <div>
                         <div>
                             <input
-                                className="input input-bordered join-item"
+                                onChange={handleChangeInput}
+                                className="input input-bordered"
                                 placeholder="Search"
                             />
                         </div>
                     </div>
-                    <div className="indicator">
-                        <button className="btn btn-neutral join-item">
-                            Search
-                        </button>
-                    </div>
                 </div>
 
                 <div className="mt-2 lg:mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 w-full">
-                    {events.map(({ events }) => {
-                        return <CardEvent key={events.id} events={events} />;
-                    })}
+                    {events &&
+                        events.map(({ events }) => {
+                            return (
+                                <CardEvent key={events.id} events={events} />
+                            );
+                        })}
                 </div>
             </div>
         </Container>
