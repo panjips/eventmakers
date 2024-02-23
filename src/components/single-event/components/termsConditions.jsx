@@ -1,9 +1,7 @@
-import React from 'react';
-
-export const SyaratKetentuan = () => {
+export const TermsConditions = () => {
     return (
         <>
-            <h1 className="border-l-4 border-indigo-300 pl-2  text-xl text-slate-600 font-semibold mb-2">
+            <h1 className="border-l-4 border-neutral pl-2 text-xl text-slate-600 font-semibold mb-2">
                 Syarat dan Ketentuan
             </h1>
             <ol className="list-decimal list-inside list text-sm">
