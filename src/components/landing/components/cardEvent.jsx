@@ -18,7 +18,7 @@ export const CardEvent = ({ events }) => {
                 <div className="card-body">
                     <h2 className="card-title">{events.title}</h2>
                     <p className="line-clamp-2 my-2">{events.description}</p>
-                    <div className="card-actions justify-between">
+                    <div className="card-actions flex items-center justify-between">
                         <div className="badge badge-outline">
                             Date: {events.dateTime}
                         </div>
