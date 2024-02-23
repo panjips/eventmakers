@@ -1,8 +1,11 @@
 export default function useDataLanding() {
-    async function handleDataEvents() {
-        const res = await fetch('https://eventmakers-api.fly.dev/events/', {
-            cache: 'no-cache'
-        });
+    async function handleDataEvents(input = '') {
+        const res = await fetch(
+            `https://eventmakers-api.fly.dev/events/?search=${input}`,
+            {
+                cache: 'no-cache'
+            }
+        );
         const { data } = await res.json();
         if (!!res.ok) {
             return data;
