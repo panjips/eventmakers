@@ -1,8 +1,11 @@
-import React from 'react';
 import { ManageEvent } from '@/components/manage-event/components/manageEvent';
 import Provider from '@/components/manage-event/providers';
 
-export default function page() {
+export const metadata = {
+    title: 'Management Event | DynaVent'
+};
+
+export default function ManagePage() {
     return (
         <>
             <Provider>
