@@ -8,7 +8,7 @@ export const Register = () => {
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
             <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-                <div className="bg-white rounded-2xl shadow-2xl flex w-2/3 max-w-4xl">
+                <div className="bg-white rounded-2xl shadow-2xl flex min-w-3/5 max-w-4xl">
                     <div className="lg:w-3/5 w-full p-5">
                         <div className="text-center lg:text-left font-bold">
                             <Link href={'/'}>
@@ -35,24 +35,24 @@ export const Register = () => {
                                         name="name"
                                         placeholder="Name"
                                         autoComplete="off"
-                                        className="border border-slate-300 text-sm bg-white rounded-md p-2 focus:outline-none "
+                                        className="border border-slate-300 text-sm bg-white rounded-md p-2 focus:outline-none"
                                     />
                                     <input
                                         type="email"
                                         name="email"
                                         placeholder="Email"
                                         autoComplete="off"
-                                        className="border border-slate-300 text-sm bg-white rounded-md p-2 focus:outline-none "
+                                        className="border border-slate-300 text-sm bg-white rounded-md p-2 focus:outline-none"
                                     />
                                     <input
                                         type="password"
                                         placeholder="Password"
                                         name="password"
                                         autoComplete="off"
-                                        className="border border-slate-300 text-sm bg-white rounded-md p-2 focus:outline-none "
+                                        className="border border-slate-300 text-sm bg-white rounded-md p-2 focus:outline-none"
                                     />
                                 </div>
-                                <button className="bg-orange-400 hover:bg-orange-700 transition-all text-slate-100 py-2 px-5 rounded-md text-sm ">
+                                <button className="bg-orange-400 hover:bg-orange-700 transition-all text-slate-100 py-2 px-5 rounded-md text-sm">
                                     Register
                                 </button>
                             </form>
