@@ -9,7 +9,7 @@ export const Login = () => {
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
             <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
                 <div className="bg-white rounded-2xl shadow-2xl flex w-2/3 max-w-4xl">
-                    <div className="w-3/5 p-5">
+                    <div className="lg:w-3/5 w-full p-5">
                         <div className="text-center lg:text-left font-bold">
                             <Link href={'/'}>
                                 <span className="text-orange-500">
@@ -49,7 +49,7 @@ export const Login = () => {
                             </form>
 
                             <p className="text-xs mt-4 text-slate-400">
-                                Dont have account yet?{' '}
+                                Don`t have an account?{' '}
                                 <Link
                                     href="/register"
                                     className="text-indigo-500 hover:text-indigo-700 hover:font-bold transition-all"
@@ -57,9 +57,12 @@ export const Login = () => {
                                     Register now
                                 </Link>
                             </p>
+                            <p className="text-sm font-semibold mt-5 lg:hidden block">
+                                Crafted with 🧡 by Dynacode
+                            </p>
                         </div>
                     </div>
-                    <div className="w-2/5 bg-orange-400  text-white rounded-tr-2xl rounded-br-2xl py-36 px-12">
+                    <div className="w-2/5 bg-orange-400 text-white rounded-tr-2xl rounded-br-2xl py-36 px-12 hidden lg:block">
                         <Link href={'/'}>
                             <h1 className="text-3xl font-bold"> 🎪 </h1>
                         </Link>
