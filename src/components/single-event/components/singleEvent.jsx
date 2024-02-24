@@ -8,14 +8,8 @@ import useJoinEvent from '../hooks/useJoinEvent';
 import Avatar from 'boring-avatars';
 
 export const SingleEvent = ({ events, participants }) => {
-    const {
-        handleChange,
-        name,
-        email,
-        phoneNumber,
-        handleJoinEvent,
-        handleIsJoinEvent
-    } = useJoinEvent();
+    const { handleChange, phoneNumber, handleJoinEvent, handleIsJoinEvent } =
+        useJoinEvent();
     const isJoin = handleIsJoinEvent(participants);
     console.log(isJoin);
     return (
@@ -60,13 +54,13 @@ export const SingleEvent = ({ events, participants }) => {
                                         '#00AAFF'
                                     ]}
                                 />
-                                <p className="text-lg text-slate-600 leading-5 font-semibold">
+                                <p className="text-lg text-slate-600 leading-5 font-medium">
                                     Dynacode
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div className="p-4 lg:col-span-3 w-full bg-slate-50 rounded-lg shadow-sm flex justify-between flex-col">
+                    <div className="p-4 lg:col-span-3 w-full bg-slate-50 rounded-lg shadow-sm flex flex-col justify-between">
                         <div className="flex flex-col gap-3">
                             <h3 className="font-semibold text-lg  text-slate-600 ">
                                 Join Event
@@ -93,32 +87,8 @@ export const SingleEvent = ({ events, participants }) => {
                                 className="mt-4 flex flex-col gap-3 lg:gap-4"
                             >
                                 <div className="form-control">
-                                    <label className="text-sm">Name</label>
-                                    <input
-                                        type="text"
-                                        id="name"
-                                        name="name"
-                                        value={name}
-                                        onChange={handleChange}
-                                        placeholder="Input your name..."
-                                        className="input input-accent input-sm input-bordered placeholder-slate-500/30"
-                                    />
-                                </div>
-                                <div className="form-control">
-                                    <label className="text-sm">Email</label>
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        name="email"
-                                        value={email}
-                                        onChange={handleChange}
-                                        placeholder="Input your email..."
-                                        className="input input-accent input-sm input-bordered placeholder-slate-500/30"
-                                    />
-                                </div>
-                                <div className="form-control">
-                                    <label className="text-sm">
-                                        Phone number
+                                    <label className="text-sm mb-2">
+                                        Phone Number
                                     </label>
                                     <input
                                         type="number"
@@ -130,7 +100,7 @@ export const SingleEvent = ({ events, participants }) => {
                                         className="input input-accent input-sm input-bordered placeholder-slate-500/30"
                                     />
                                 </div>
-                                <button className="mt-2 lg:mt-0 btn btn-neutral btn-sm text-slate-50">
+                                <button className="mt-2 lg:mt-0 btn btn-neutral btn-sm text-base-200 hover:bg-base-200 hover:text-neutral">
                                     Join Now
                                 </button>
                             </form>
