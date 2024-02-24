@@ -10,6 +10,7 @@ export default async function EventPage({ params }) {
     const { eventid } = params;
     const { handleSingleDataEvent } = useSingleData();
     const { events, participants } = await handleSingleDataEvent(eventid);
+
     return (
         <>
             <SingleEvent events={events} participants={participants} />

@@ -1,5 +1,6 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+
+import { useEffect, useState } from 'react';
 
 export default function useGetCreatedEvent() {
     const [dataEvent, setDataEvent] = useState(null);

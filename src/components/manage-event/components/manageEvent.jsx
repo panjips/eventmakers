@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+
 import { EventTable } from '@/components/manage-event/components/eventTable';
 import { EventForm } from '@/components/manage-event/components/eventForm';
 import useGetCreatedEvent from '../hooks/useGetCreatedEvent';
