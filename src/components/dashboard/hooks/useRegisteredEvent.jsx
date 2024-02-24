@@ -40,5 +40,5 @@ export default function useRegisteredEvent() {
         handleDatas();
     }, [isLoading]);
 
-    return { dataEvent, isLoading };
+    return { dataEvent, isLoading, user };
 }
