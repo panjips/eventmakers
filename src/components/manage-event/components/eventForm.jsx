@@ -21,7 +21,7 @@ export const EventForm = () => {
                         value={event.title}
                         onChange={handleChange}
                         placeholder="Input your event name..."
-                        className="input input-accent input-sm input-bordered placeholder-slate-500/30"
+                        className="input input-sm input-bordered bg-slate-100 placeholder-slate-500/30 "
                     />
                 </div>
                 <div className="form-control md:col-span-4">
@@ -32,7 +32,7 @@ export const EventForm = () => {
                         name="date"
                         value={event.date}
                         onChange={handleChange}
-                        className="input input-accent input-sm input-bordered"
+                        className="input input-sm input-bordered bg-slate-100 "
                     />
                 </div>
                 <div className="form-control md:col-span-4">
@@ -44,7 +44,7 @@ export const EventForm = () => {
                         value={event.image}
                         onChange={handleChange}
                         placeholder="Input your event image..."
-                        className="input input-accent input-sm input-bordered placeholder-slate-500/30"
+                        className="input input-sm input-bordered bg-slate-100 placeholder-slate-500/30"
                     />
                 </div>
                 <div className="form-control col-span-full">
@@ -54,7 +54,7 @@ export const EventForm = () => {
                         name="description"
                         value={event.description}
                         onChange={handleChange}
-                        className="textarea textarea-sm textarea-bordered h-24 placeholder-slate-500/30"
+                        className="textarea textarea-sm textarea-bordered bg-slate-100 placeholder-slate-500/30"
                         placeholder="Input your description..."
                     ></textarea>
                 </div>
@@ -62,13 +62,13 @@ export const EventForm = () => {
             <div>
                 <button
                     type="submit"
-                    className="btn btn-sm bg-slate-700 hover:bg-slate-800 text-slate-200 font-light mt-4"
+                    className="text-white btn btn-sm bg-neutral hover:bg-neutral/60 hover:font-bold font-light mt-4"
                 >
                     {isEdit ? 'Edit Event' : 'Add Event'}
                 </button>
                 {isEdit && (
                     <button
-                        className="btn btn-sm bg-slate-700 hover:bg-slate-800 text-slate-200 font-light mt-4 ml-2"
+                        className="text-white btn btn-sm bg-neutral hover:bg-neutral/60 hover:font-bold font-light mt-4 ml-2"
                         onClick={handleCancelEdit}
                     >
                         Cancel Edit
