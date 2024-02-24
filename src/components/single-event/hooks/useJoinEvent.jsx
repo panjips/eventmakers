@@ -1,5 +1,6 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+
+import { useState, useEffect } from 'react';
 import Toast from '@/components/shared/toast';
 import Cookies from 'js-cookie';
 import { useParams } from 'next/navigation';
@@ -11,7 +12,7 @@ export default function useJoinEvent() {
     const [token, setToken] = useState('');
     const { eventid } = useParams();
     const router = useRouter();
-    const { toastInfo, toastWarning } = Toast();
+    const { toastInfo, toastWarning, toastSuccess } = Toast();
 
     useEffect(() => {
         const localUser = JSON.parse(localStorage.getItem('user'));
@@ -28,7 +29,7 @@ export default function useJoinEvent() {
         e.preventDefault();
 
         if (!user || !token) {
-            toastInfo('Silahkan login terlebih dahulu!');
+            toastInfo('Silakan log in terlebih dahulu!');
             router.push('/login');
             return;
         } else if (!phoneNumber) {
@@ -36,23 +37,20 @@ export default function useJoinEvent() {
             return;
         }
 
-        const req = await fetch(
-            `https://eventmakers-api.fly.dev/events/${eventid}/join`,
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${token}`
-                },
-                body: JSON.stringify({
-                    name: user.name,
-                    email: user.email,
-                    phoneNumber: phoneNumber
-                })
-            }
-        );
+        await fetch(`https://eventmakers-api.fly.dev/events/${eventid}/join`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                name: user.name,
+                email: user.email,
+                phoneNumber: phoneNumber
+            })
+        });
 
-        const { data, message } = await req.json();
+        toastSuccess('Berhasil bergabung ke event!');
         router.refresh();
         setPhoneNumber('');
     }
