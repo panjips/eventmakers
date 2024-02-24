@@ -1,5 +1,6 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+
+import { useState, useEffect } from 'react';
 import { CardEvent } from './cardEvent';
 import useDataLanding from '../hooks/useDataLanding';
 import { Container } from '@/components/shared/container';
@@ -38,7 +39,7 @@ export const Events = () => {
                         <div>
                             <input
                                 onChange={handleChangeInput}
-                                className="input input-bordered"
+                                className="input input-accent input-bordered"
                                 placeholder="Search"
                             />
                         </div>
