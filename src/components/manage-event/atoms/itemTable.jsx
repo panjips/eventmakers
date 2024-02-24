@@ -28,34 +28,32 @@ export const ItemTable = ({ data }) => {
                         {title}
                     </p>
                 </td>
-                <td className="w-1/2 hidden lg:table-cell">
+                <td className="text-center w-1/2 hidden lg:table-cell">
                     <p className="overflow-hidden text-ellipsis line-clamp-2">
                         {description}
                     </p>
                 </td>
                 <td className="text-center hidden lg:table-cell">
-                    <span className="badge badge-ghost badge-sm">
-                        {dateTime}
-                    </span>
+                    <span className="badge-md">{dateTime}</span>
                 </td>
                 <td className="text-center ">
                     <button
                         onClick={detailEvent}
-                        className="btn btn-ghost btn-sm group transition-all hover:shadow-sm"
+                        className="btn btn-ghost btn-sm group transition-all"
                     >
-                        <FaInfoCircle className="text-slate-700 group-hover:text-white transition-all" />
+                        <FaInfoCircle className="text-neutral group-hover:text-white transition-all" />
                     </button>
                     <button
                         onClick={() => handleIsEdit(data)}
-                        className="btn btn-ghost btn-sm group transition-all hover:shadow-sm"
+                        className="btn btn-ghost btn-sm group transition-all"
                     >
-                        <FaEdit className="text-slate-700 group-hover:text-white transition-all" />
+                        <FaEdit className="text-neutral group-hover:text-white transition-all" />
                     </button>
                     <button
                         onClick={handleDeleteEvent}
-                        className="btn btn-ghost btn-sm group transition-all hover:shadow-sm"
+                        className="btn btn-ghost btn-sm group transition-all"
                     >
-                        <FaTrashAlt className="text-slate-700 group-hover:text-white transition-all" />
+                        <FaTrashAlt className="text-neutral group-hover:text-white transition-all" />
                     </button>
                 </td>
             </tr>
