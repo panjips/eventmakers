@@ -11,7 +11,6 @@ export const SingleEvent = ({ events, participants }) => {
     const { handleChange, phoneNumber, handleJoinEvent, handleIsJoinEvent } =
         useJoinEvent();
     const isJoin = handleIsJoinEvent(participants);
-    console.log(isJoin);
     return (
         <Container>
             <div className="py-8">

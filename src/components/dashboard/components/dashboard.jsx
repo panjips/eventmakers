@@ -4,10 +4,12 @@ import { Card } from './card';
 import useRegisteredEvent from '../hooks/useRegisteredEvent';
 
 export const Dashboard = () => {
-    const { isLoading, dataEvent } = useRegisteredEvent();
+    const { isLoading, dataEvent, user } = useRegisteredEvent();
     return (
         <div className="px-6 py-3 lg:py-6 w-full">
-            <h1 className="text-2xl lg:text-3xl font-bold">Welcome back,</h1>
+            <h1 className="text-2xl lg:text-3xl font-bold">
+                Welcome back, {user && user.name}
+            </h1>
             <div className="grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-4 md:grid-cols-2 gap-4 mt-4 w-full">
                 {isLoading ? (
                     <>

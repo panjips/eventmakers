@@ -9,7 +9,7 @@ export default function useJoinEvent() {
     const [user, setUser] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [token, setToken] = useState('');
-    const { eventId } = useParams();
+    const { eventid } = useParams();
     const router = useRouter();
     const { toastInfo, toastWarning } = Toast();
 
@@ -28,7 +28,6 @@ export default function useJoinEvent() {
         e.preventDefault();
 
         if (!user || !token) {
-            console.log(!user);
             toastInfo('Silahkan login terlebih dahulu!');
             router.push('/login');
             return;
@@ -38,7 +37,7 @@ export default function useJoinEvent() {
         }
 
         const req = await fetch(
-            `https://eventmakers-api.fly.dev/events/${eventId}/join`,
+            `https://eventmakers-api.fly.dev/events/${eventid}/join`,
             {
                 method: 'POST',
                 headers: {
@@ -59,7 +58,6 @@ export default function useJoinEvent() {
     }
 
     function handleIsJoinEvent(participants) {
-        console.log(user);
         if (!user) return true;
         return !Array.from(participants).find((e) => e.email === user.email);
     }
