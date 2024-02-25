@@ -60,31 +60,10 @@ export const SingleEvent = ({ events, participants }) => {
                                 {events.description}
                             </p>
                         </div>
-                        <div className="p-4 w-full bg-slate-50 rounded-lg shadow-sm">
-                            <h3 className="border-l-4 border-neutral pl-2 font-semibold text-lg text-slate-600 mb-2">
-                                Organized by
-                            </h3>
-                            <div className="flex items-center gap-2">
-                                <Avatar
-                                    size={30}
-                                    variant="beam"
-                                    colors={[
-                                        '#AAFF00',
-                                        '#FFAA00',
-                                        '#FF00AA',
-                                        '#AA00FF',
-                                        '#00AAFF'
-                                    ]}
-                                />
-                                <p className="text-lg text-slate-600 leading-5 font-medium">
-                                    Dynacode
-                                </p>
-                            </div>
-                        </div>
                     </div>
                     <div className="p-4 lg:col-span-3 w-full bg-slate-50 rounded-lg shadow-sm flex flex-col justify-between">
                         <div className="flex flex-col gap-3">
-                            <h3 className="font-semibold text-lg  text-slate-600 ">
+                            <h3 className="font-semibold text-lg  text-slate-600">
                                 Join Event
                             </h3>
                             <div className="flex gap-4 items-center lg:items-start lg:flex-col">
@@ -100,25 +79,28 @@ export const SingleEvent = ({ events, participants }) => {
                                         {participants.length} Participants
                                     </p>
                                 </div>
-                                {author && (
-                                    <div className="flex items-center gap-2">
-                                        <Avatar
-                                            size={20}
-                                            variant="beam"
-                                            colors={[
-                                                '#AAFF00',
-                                                '#FFAA00',
-                                                '#FF00AA',
-                                                '#AA00FF',
-                                                '#00AAFF'
-                                            ]}
-                                        />
-                                        <p className="text-xs text-slate-600">
-                                            {author[0].name}
-                                        </p>
-                                    </div>
-                                )}
                             </div>
+                            <h3 className="font-semibold text-lg  text-slate-600">
+                                Organized by
+                            </h3>
+                            {author && (
+                                <div className="flex items-center gap-2">
+                                    <Avatar
+                                        size={30}
+                                        variant="beam"
+                                        colors={[
+                                            '#AAFF00',
+                                            '#FFAA00',
+                                            '#FF00AA',
+                                            '#AA00FF',
+                                            '#00AAFF'
+                                        ]}
+                                    />
+                                    <p className="text-md text-slate-600">
+                                        {author[0].name}
+                                    </p>
+                                </div>
+                            )}
                         </div>
                         {isJoin ? (
                             <form

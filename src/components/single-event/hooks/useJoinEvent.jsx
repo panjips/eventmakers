@@ -3,8 +3,7 @@
 import { useState, useEffect } from 'react';
 import Toast from '@/components/shared/toast';
 import Cookies from 'js-cookie';
-import { useParams } from 'next/navigation';
-import { useRouter } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 
 export default function useJoinEvent() {
     const [user, setUser] = useState('');
