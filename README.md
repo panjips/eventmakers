@@ -13,13 +13,14 @@ Fitur yang tersedia:
 
 > User
 
--   [x] Masuk dan Daftar
--   [x] Melihat halaman dashboard dan daftar event, detail event
--   [x] Membuat event baru, mengubah event baru, dan menghapus event
+-   [x] Masuk dan daftar
+-   [x] Melihat halaman utama, halaman dashboard, daftar event, detail event
+-   [x] Membuat event baru, mengubah event baru, dan menghapus event (manajemen
+        event)
 -   [x] Mencari event dari daftar event di halaman utama
 -   [x] Masuk event mana pun sebagai partisipan **_(seharusnya ini untuk guest,
         hanya saja dari api join event membutuhkan token, jadi harus mengakses
-        authorization terlebih dahulu)._**
+        authorization terlebih dahulu)_**
 
 > Guest
 
@@ -31,6 +32,14 @@ Fitur yang tersedia:
 Dibuat dengan [Next.js](https://nextjs.org/),
 [Tailwind CSS](https://tailwindcss.com/), [daisyUI](https://daisyui.com/) dan
 [Vercel](https://vercel.com/).
+
+Other package yang digunakan:
+
+-   boring-avatars
+-   jose
+-   js-cookie
+-   react-confetti
+-   react-icons -react-toastify
 
 ## 🥼 Authors
 
