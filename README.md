@@ -35,11 +35,12 @@ Dibuat dengan [Next.js](https://nextjs.org/),
 
 Other package yang digunakan:
 
--   boring-avatars
--   jose
--   js-cookie
--   react-confetti
--   react-icons -react-toastify
+-   [boring-avatars](https://www.npmjs.com/package/boring-avatars)
+-   [jose](https://www.npmjs.com/package/jose)
+-   [js-cookie](https://www.npmjs.com/package/js-cookie)
+-   [react-confetti](https://www.npmjs.com/package/react-confetti)
+-   [react-icons](https://www.npmjs.com/package/react-icons)
+-   [react-toastify](https://www.npmjs.com/package/react-toastify)
 
 ## 🥼 Authors
 
