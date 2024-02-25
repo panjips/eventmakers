@@ -6,12 +6,14 @@ import { TermsConditions } from './termsConditions';
 import Image from 'next/image';
 import useJoinEvent from '../hooks/useJoinEvent';
 import Avatar from 'boring-avatars';
-import { useState } from 'react';
+import useAuthorEvent from '../hooks/useAuthorEvent';
+import { useEffect, useState } from 'react';
 import Confetti from 'react-confetti';
 
 export const SingleEvent = ({ events, participants }) => {
     const { handleChange, phoneNumber, handleJoinEvent, handleIsJoinEvent } =
         useJoinEvent();
+    const { getAuthor } = useAuthorEvent();
     const isJoin = handleIsJoinEvent(participants);
     const [isConfetti, setIsConfetti] = useState(false);
 
@@ -22,6 +24,16 @@ export const SingleEvent = ({ events, participants }) => {
         }, 5000);
     }
 
+    const [author, setAuthor] = useState(null);
+
+    useEffect(() => {
+        const getAuthorEvent = async () => {
+            const data = await getAuthor(events.author);
+            setAuthor(data);
+        };
+
+        getAuthorEvent();
+    }, [setAuthor]);
     return (
         <Container>
             <div className="py-8">
@@ -88,6 +100,24 @@ export const SingleEvent = ({ events, participants }) => {
                                         {participants.length} Participants
                                     </p>
                                 </div>
+                                {author && (
+                                    <div className="flex items-center gap-2">
+                                        <Avatar
+                                            size={20}
+                                            variant="beam"
+                                            colors={[
+                                                '#AAFF00',
+                                                '#FFAA00',
+                                                '#FF00AA',
+                                                '#AA00FF',
+                                                '#00AAFF'
+                                            ]}
+                                        />
+                                        <p className="text-xs text-slate-600">
+                                            {author[0].name}
+                                        </p>
+                                    </div>
+                                )}
                             </div>
                         </div>
                         {isJoin ? (
