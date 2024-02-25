@@ -1,9 +1,7 @@
-import React from 'react';
-
 export default function useAuthorEvent() {
-    async function getAuthor(authorId) {
+    async function getAuthor(authorid) {
         const req = await fetch(
-            `https://eventmakers-api.fly.dev/users/${authorId}`,
+            `https://eventmakers-api.fly.dev/users/${authorid}`,
             {
                 headers: {
                     Authorization:
@@ -13,7 +11,6 @@ export default function useAuthorEvent() {
         );
 
         const { data } = await req.json();
-
         return data;
     }
     return { getAuthor };
