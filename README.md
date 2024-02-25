@@ -5,7 +5,10 @@ Simple Event Management to Learn [Next.js](https://nextjs.org/)
 ## 🔙 Latar Belakang
 
 Project ini dibuat untuk memenuhi tugas ke-5 dari bootcamp
-[Devscale Indonesia](devscale.id).
+[Devscale Indonesia](https://devscale.id).
+
+**Berikut untuk mengakses projectnya:
+[DynaVent](https://eventmakers-three.vercel.app)**
 
 ## 🧩 Fitur
 
