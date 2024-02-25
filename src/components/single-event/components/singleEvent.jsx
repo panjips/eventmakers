@@ -6,11 +6,22 @@ import { TermsConditions } from './termsConditions';
 import Image from 'next/image';
 import useJoinEvent from '../hooks/useJoinEvent';
 import Avatar from 'boring-avatars';
+import { useState } from 'react';
+import Confetti from 'react-confetti';
 
 export const SingleEvent = ({ events, participants }) => {
     const { handleChange, phoneNumber, handleJoinEvent, handleIsJoinEvent } =
         useJoinEvent();
     const isJoin = handleIsJoinEvent(participants);
+    const [isConfetti, setIsConfetti] = useState(false);
+
+    function handleConfetti() {
+        setIsConfetti(true);
+        setTimeout(() => {
+            setIsConfetti(false);
+        }, 5000);
+    }
+
     return (
         <Container>
             <div className="py-8">
@@ -79,7 +90,7 @@ export const SingleEvent = ({ events, participants }) => {
                                 </div>
                             </div>
                         </div>
-                        {isJoin && (
+                        {isJoin ? (
                             <form
                                 method="POST"
                                 onSubmit={handleJoinEvent}
@@ -103,7 +114,15 @@ export const SingleEvent = ({ events, participants }) => {
                                     Join Now
                                 </button>
                             </form>
+                        ) : (
+                            <button
+                                onClick={handleConfetti}
+                                className="mt-4 btn btn-neutral btn-sm text-base-200 hover:bg-base-200 hover:text-neutral"
+                            >
+                                🎉 Already Join
+                            </button>
                         )}
+                        {isConfetti && <Confetti />}
                     </div>
                     <div className="lg:col-span-9 p-4 w-full bg-slate-50 rounded-lg shadow-sm">
                         <TermsConditions />

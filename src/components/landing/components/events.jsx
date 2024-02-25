@@ -47,12 +47,15 @@ export const Events = () => {
                 </div>
 
                 <div className="mt-2 lg:mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 w-full">
-                    {events &&
+                    {events !== null ? (
                         events.map(({ events }) => {
                             return (
                                 <CardEvent key={events.id} events={events} />
                             );
-                        })}
+                        })
+                    ) : (
+                        <p className="text-2xl font-medium">Data belum ada.</p>
+                    )}
                 </div>
             </div>
         </Container>
