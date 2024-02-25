@@ -1,5 +1,6 @@
 'use client';
-import React, { useEffect } from 'react';
+
+import { useEffect } from 'react';
 import { FaInfoCircle } from 'react-icons/fa';
 import { FaEdit } from 'react-icons/fa';
 import { FaTrashAlt } from 'react-icons/fa';
@@ -14,7 +15,7 @@ export const ItemTable = ({ data }) => {
     useEffect(() => {
         setIdEvent(id);
     }, []);
-    const { isEdit, setIsEdit, handleIsEdit } = useEditEvent();
+    const { handleIsEdit } = useEditEvent();
 
     function detailEvent() {
         router.push(`/${id}`);
@@ -39,21 +40,21 @@ export const ItemTable = ({ data }) => {
                 <td className="text-center ">
                     <button
                         onClick={detailEvent}
-                        className="btn btn-ghost btn-sm group transition-all"
+                        className="btn btn-ghost btn-sm group hover:bg-neutral transition-all"
                     >
-                        <FaInfoCircle className="text-neutral group-hover:text-white transition-all" />
+                        <FaInfoCircle className="text-neutral group-hover:text-white group-hover:bg-neutral transition-all" />
                     </button>
                     <button
                         onClick={() => handleIsEdit(data)}
-                        className="btn btn-ghost btn-sm group transition-all"
+                        className="btn btn-ghost btn-sm group hover:bg-neutral transition-all"
                     >
-                        <FaEdit className="text-neutral group-hover:text-white transition-all" />
+                        <FaEdit className="text-neutral group-hover:text-white group-hover:bg-neutral transition-all" />
                     </button>
                     <button
                         onClick={handleDeleteEvent}
-                        className="btn btn-ghost btn-sm group transition-all"
+                        className="btn btn-ghost btn-sm group hover:bg-neutral transition-all"
                     >
-                        <FaTrashAlt className="text-neutral group-hover:text-white transition-all" />
+                        <FaTrashAlt className="text-neutral group-hover:text-white group-hover:bg-neutral transition-all" />
                     </button>
                 </td>
             </tr>

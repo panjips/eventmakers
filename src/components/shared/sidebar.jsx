@@ -1,16 +1,18 @@
 'use client';
 
-import React, { useContext, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { SidebarContext } from '@/app/dashboard/layout';
 import { FaCalendarAlt, FaListAlt } from 'react-icons/fa';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
+import Toast from '@/components/shared/toast';
 
 export const Sidebar = () => {
     const pathname = usePathname();
     const router = useRouter();
     const { isOpen, setIsOpen } = useContext(SidebarContext);
+    const { toastSuccess } = Toast();
 
     useEffect(() => {
         const sidebar = document.getElementById('sidebar');
@@ -28,6 +30,7 @@ export const Sidebar = () => {
     function logout() {
         localStorage.removeItem('user');
         Cookies.remove('token');
+        toastSuccess('Log out successfully');
         router.push('/login');
     }
 
@@ -57,9 +60,7 @@ export const Sidebar = () => {
                             }`}
                         >
                             <FaCalendarAlt />
-                            <p className=" font-light text-sm">
-                                Registered Event
-                            </p>
+                            <p className="text-sm">Registered Event</p>
                         </div>
                     </Link>
                     <Link href="/dashboard/manage">
@@ -71,15 +72,13 @@ export const Sidebar = () => {
                             }`}
                         >
                             <FaListAlt />
-                            <p className=" font-light text-sm">
-                                Management Event
-                            </p>
+                            <p className="text-sm">Management Event</p>
                         </div>
                     </Link>
                 </div>
                 <button
                     onClick={logout}
-                    className="btn bg-base-200 text-neutral border-none btn-error btn-sm mt-auto hover:bg-neutral-500 hover:text-white "
+                    className="btn bg-base-200 text-neutral border-none btn-sm mt-auto hover:bg-neutral-600 hover:text-base-200"
                 >
                     Log out
                 </button>

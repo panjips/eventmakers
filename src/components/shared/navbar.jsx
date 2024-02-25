@@ -1,12 +1,15 @@
 'use client';
+
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/navigation';
+import Toast from '@/components/shared/toast';
 
 export const Navbar = () => {
     const [user, setUser] = useState();
     const router = useRouter();
+    const { toastSuccess } = Toast();
 
     useEffect(() => {
         const localUser = JSON.parse(localStorage.getItem('user'));
@@ -16,6 +19,7 @@ export const Navbar = () => {
     function logout() {
         localStorage.removeItem('user');
         Cookies.remove('token');
+        toastSuccess('Log out successfully');
         router.push('/login');
     }
 

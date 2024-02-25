@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+
 import useCreateEvent from '../hooks/useCreateEvent';
 import useEditEvent from '../hooks/useEditEvent';
 
@@ -54,7 +54,7 @@ export const EventForm = () => {
                         name="description"
                         value={event.description}
                         onChange={handleChange}
-                        className="textarea textarea-sm textarea-bordered bg-slate-100 placeholder-slate-500/30"
+                        className="textarea textarea-bordered textarea-md bg-slate-100 placeholder-slate-500/30"
                         placeholder="Input your description..."
                     ></textarea>
                 </div>
@@ -62,13 +62,13 @@ export const EventForm = () => {
             <div>
                 <button
                     type="submit"
-                    className="text-white btn btn-sm bg-neutral hover:bg-neutral/60 hover:font-bold font-light mt-4"
+                    className="btn bg-neutral text-base-200 btn-sm hover:bg-base-200 hover:text-neutral mt-4"
                 >
                     {isEdit ? 'Edit Event' : 'Add Event'}
                 </button>
                 {isEdit && (
                     <button
-                        className="text-white btn btn-sm bg-neutral hover:bg-neutral/60 hover:font-bold font-light mt-4 ml-2"
+                        className="btn bg-neutral text-base-200 btn-sm hover:bg-base-200 hover:text-neutral mt-4 ml-2"
                         onClick={handleCancelEdit}
                     >
                         Cancel Edit
