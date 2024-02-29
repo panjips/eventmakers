@@ -11,8 +11,7 @@ import { useEffect, useState } from 'react';
 import Confetti from 'react-confetti';
 
 export const SingleEvent = ({ events, participants }) => {
-    const { handleChange, phoneNumber, handleJoinEvent, handleIsJoinEvent } =
-        useJoinEvent();
+    const { handleJoinEvent, handleIsJoinEvent } = useJoinEvent();
     const { getAuthor } = useAuthorEvent();
     const isJoin = handleIsJoinEvent(participants);
     const [isConfetti, setIsConfetti] = useState(false);
@@ -109,6 +108,30 @@ export const SingleEvent = ({ events, participants }) => {
                                 className="mt-4 flex flex-col gap-3 lg:gap-4"
                             >
                                 <div className="form-control">
+                                    <label className="text-sm mb-2">Name</label>
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        name="name"
+                                        autoComplete="off"
+                                        placeholder="Input your name..."
+                                        className="input input-accent input-sm input-bordered placeholder-slate-500/30"
+                                    />
+                                </div>
+                                <div className="form-control">
+                                    <label className="text-sm mb-2">
+                                        Email
+                                    </label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        autoComplete="off"
+                                        placeholder="Input your email..."
+                                        className="input input-accent input-sm input-bordered placeholder-slate-500/30"
+                                    />
+                                </div>
+                                <div className="form-control">
                                     <label className="text-sm mb-2">
                                         Phone Number
                                     </label>
@@ -116,8 +139,7 @@ export const SingleEvent = ({ events, participants }) => {
                                         type="number"
                                         id="phoneNumber"
                                         name="phoneNumber"
-                                        value={phoneNumber}
-                                        onChange={handleChange}
+                                        autoComplete="off"
                                         placeholder="Input your phone number..."
                                         className="input input-accent input-sm input-bordered placeholder-slate-500/30"
                                     />

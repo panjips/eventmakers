@@ -1,4 +1,3 @@
-import React from 'react';
 import Toast from '@/components/shared/toast';
 import { useRouter } from 'next/navigation';
 
