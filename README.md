@@ -16,19 +16,17 @@ Fitur yang tersedia:
 
 > User
 
--   [x] Masuk dan daftar
--   [x] Melihat halaman utama, halaman dashboard, daftar event, detail event
--   [x] Membuat event baru, mengubah event baru, dan menghapus event (manajemen
-        event)
--   [x] Mencari event dari daftar event di halaman utama
--   [x] Masuk event mana pun sebagai partisipan **_(seharusnya ini untuk guest,
-        hanya saja dari api join event membutuhkan token, jadi harus mengakses
-        authorization terlebih dahulu)_**
+-   [x] Masuk dan daftar.
+-   [x] Melihat halaman utama, halaman dashboard, daftar event, detail event.
+-   [x] Membuat event baru, mengubah event, dan menghapus event (manajemen
+        event).
+-   [x] Mencari event dari daftar event di halaman utama.
 
 > Guest
 
--   [x] Melihat halaman utama, daftar event, detail event
--   [x] Mencari event dari daftar event di halaman utama
+-   [x] Melihat halaman utama, daftar event, detail event.
+-   [x] Mencari event dari daftar event di halaman utama.
+-   [x] Masuk event sebagai partisipan.
 
 ## 🧰 Tech Stack
 
