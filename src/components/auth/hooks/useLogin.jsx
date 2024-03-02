@@ -32,6 +32,7 @@ export default function useLogin() {
         Cookies.set('token', token);
         toastSuccess(message);
         router.push('/dashboard');
+        router.refresh();
     }
 
     return { handleLogin };
