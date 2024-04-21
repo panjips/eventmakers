@@ -17,7 +17,7 @@ export default function useRegister() {
         }
 
         const res = await fetch(
-            'https://eventmakers-api.fly.dev/auth/register',
+            'https://eventmakers.devscale.id/auth/register',
             {
                 method: 'POST',
                 headers: {

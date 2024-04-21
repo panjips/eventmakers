@@ -1,7 +1,7 @@
 export default function useAuthorEvent() {
     async function getAuthor(authorid) {
         const req = await fetch(
-            `https://eventmakers-api.fly.dev/users/${authorid}`,
+            `https://eventmakers.devscale.id/users/${authorid}`,
             {
                 headers: {
                     Authorization:

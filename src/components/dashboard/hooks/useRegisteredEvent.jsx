@@ -12,7 +12,7 @@ export default function useRegisteredEvent() {
     }, []);
 
     async function handleDataEvents() {
-        const res = await fetch('https://eventmakers-api.fly.dev/events/');
+        const res = await fetch('https://eventmakers.devscale.id/events/');
         const { data } = await res.json();
 
         function isJoin(participants) {

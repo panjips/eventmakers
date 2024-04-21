@@ -53,7 +53,7 @@ export default function useEditEvent() {
         }
 
         const req = await fetch(
-            `https://eventmakers-api.fly.dev/events/${event.id}`,
+            `https://eventmakers.devscale.id/events/${event.id}`,
             {
                 method: 'PATCH',
                 headers: {

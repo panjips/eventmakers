@@ -27,7 +27,7 @@ export default function useJoinEvent() {
         }
 
         const res = await fetch(
-            `https://eventmakers-api.fly.dev/events/${eventid}/join`,
+            `https://eventmakers.devscale.id/events/${eventid}/join`,
             {
                 method: 'POST',
                 headers: {

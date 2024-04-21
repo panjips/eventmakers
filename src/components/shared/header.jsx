@@ -1,5 +1,6 @@
 'use client';
-import React, { useContext } from 'react';
+
+import { useContext } from 'react';
 import { SidebarContext } from '@/app/dashboard/layout';
 import { FaBars } from 'react-icons/fa';
 import Link from 'next/link';

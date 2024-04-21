@@ -12,7 +12,7 @@ export default function useLogin() {
         const email = event.target.email.value;
         const password = event.target.password.value;
 
-        const res = await fetch('https://eventmakers-api.fly.dev/auth/login', {
+        const res = await fetch('https://eventmakers.devscale.id/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -30,7 +30,7 @@ export default function useLogin() {
         }
         localStorage.setItem('user', JSON.stringify(payload));
         Cookies.set('token', token);
-        toastSuccess(message);
+        toastSuccess('Log in successfully');
         router.push('/dashboard');
         router.refresh();
     }

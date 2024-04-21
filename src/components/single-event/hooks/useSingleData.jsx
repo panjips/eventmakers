@@ -1,7 +1,7 @@
 export default function useSingleData() {
     async function handleSingleDataEvent(eventid) {
         const res = await fetch(
-            `https://eventmakers-api.fly.dev/events/${eventid}`,
+            `https://eventmakers.devscale.id/events/${eventid}`,
             {
                 cache: 'no-cache'
             }

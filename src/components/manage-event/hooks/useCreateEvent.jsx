@@ -37,7 +37,7 @@ export default function useCreateEvent() {
             return;
         }
 
-        const req = await fetch('https://eventmakers-api.fly.dev/events/', {
+        const req = await fetch('https://eventmakers.devscale.id/events/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
